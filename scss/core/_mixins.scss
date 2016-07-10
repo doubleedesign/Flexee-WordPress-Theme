@@ -1,0 +1,21 @@
+// See core/_grid.scss for breakpoint mixins
+// See typography/_typescales.scss for type scale mixins for typography.
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfixes need this also)
+@mixin clearfix-after() {
+	clear: both;
+}

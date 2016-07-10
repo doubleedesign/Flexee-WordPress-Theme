@@ -1,0 +1,5 @@
+/* Pixels to ems - thanks https://css-tricks.com/snippets/sass/px-to-em-functions/ */
+$browser-context: 16; // Default
+@function em-calc($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}

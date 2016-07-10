@@ -1,0 +1,436 @@
+/*============================================================
+	FLEXEE GRID
+	Flexbox-based 12-column CSS grid system
+	By Leesa Ward (a.k.a. Double-E Design)
+	github.com/doubleedesign
+============================================================*/
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+/*=========================================
+	GRID VARIABLES
+=========================================*/
+$gutter:     		2em;
+$column-count: 		12;
+
+// Breakpoints
+$smaller: 			em-calc(480);
+$small:       		em-calc(600);
+$medium: 		 	em-calc(768);
+$tablet:        	em-calc(960);
+$large:        		em-calc(1280);
+$xlarge: 			em-calc(1600);
+$xxlarge: 			em-calc(1920);
+
+// Spacing
+$grid-gutter: (
+	'start' 	: $gutter/3,
+	'small'  	: $gutter/3,
+	'medium' 	: $gutter/2,
+	'tablet' 	: $gutter,
+	'large'  	: $gutter*1.5,
+	'xlarge' 	: $gutter*2,
+	'xxlarge' 	: $gutter*2.5,
+);
+
+$grid-gutter-half: ( //half the above sizes on tablet and larger, same on smaller
+	'start' 	: $gutter/3,
+	'small'  	: $gutter/3,
+	'medium' 	: $gutter/2,
+	'tablet' 	: $gutter/2,
+	'large'  	: $gutter*0.75,
+	'xlarge' 	: $gutter,
+	'xxlarge' 	: $gutter*1.25,
+);
+
+$grid-gutter-double: (
+	'start' 	: $gutter/1.5,
+	'small'  	: $gutter/1.5,
+	'medium' 	: $gutter,
+	'tablet' 	: $gutter*2,
+	'large'  	: $gutter*3,
+	'xlarge' 	: $gutter*4,
+	'xxlarge' 	: $gutter*5,
+);
+
+$global-padding: $gutter;
+$global-margin: $gutter;
+
+// Boundaries
+$start: 			em-calc(320);
+$boundary: 			em-calc(2250);
+$row-width: 		em-calc(1280); 	/* The maximum width of each row. Note that $font-size-large-screen makes 
+									this bigger than 1280 if that value is larger than 16px.
+									$row-width may be different to $boundary, which is for the whole site.
+									If you want to use the xlarge and xxlarge breakpoints for the layout,
+									set this to the same or larger than the largest breakpoint you want to use.
+									*/
+	
+/*=========================================
+	BREAKPOINT MIXINS
+=========================================*/					
+								
+@mixin bp-small {
+  @media only screen and (min-width: $small) {
+    @content;
+  }
+}
+@mixin bp-medium {
+  @media only screen and (min-width: $medium) {
+    @content;
+  }
+}
+@mixin bp-tablet {
+  @media only screen and (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin bp-large {
+  @media only screen and (min-width: $large) {
+    @content;
+  }
+}
+@mixin bp-xlarge {
+  @media only screen and (min-width: $xlarge) {
+    @content;
+  }
+}
+@mixin bp-xxlarge {
+  @media only screen and (min-width: $xxlarge) {
+    @content;
+  }
+}
+
+/*=========================================
+	GENERAL SETUP
+=========================================*/
+
+body {
+	min-width: $start;
+	max-width: $boundary;
+	margin: 0 auto;
+}
+
+[class*="row"]{
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+.column,
+.columns {
+  box-sizing: border-box;
+  flex: 0 auto;
+  padding-left: map-get($grid-gutter,start);
+  padding-right: map-get($grid-gutter,start);
+  
+   @include bp-small {
+	   padding-left: map-get($grid-gutter,small);
+  	   padding-right: map-get($grid-gutter,small);
+   }
+   
+   @include bp-medium {
+	   padding-left: map-get($grid-gutter,medium);
+  	   padding-right: map-get($grid-gutter,medium);
+   }
+   
+   @include bp-tablet {
+	   padding-left: map-get($grid-gutter,tablet);
+  	   padding-right: map-get($grid-gutter,tablet);
+   }
+   
+   @include bp-large {
+	   padding-left: map-get($grid-gutter,large);
+  	   padding-right: map-get($grid-gutter,large);
+   }
+   
+   @include bp-xlarge {
+	   padding-left: map-get($grid-gutter,xlarge);
+  	   padding-right: map-get($grid-gutter,xlarge);
+   }
+   
+   @include bp-xxlarge {
+	   padding-left: map-get($grid-gutter,xxlarge);
+  	   padding-right: map-get($grid-gutter,xxlarge);
+   }
+}
+
+@mixin grid-gutter-collapse { // Removes the padding from columns
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.nogutter {
+	@include grid-gutter-collapse;
+}
+
+/*=========================================
+	GUTS OF THE GRID
+=========================================*/
+
+/* All Rows */
+[class*="row"] { 
+	max-width: $row-width; 
+	margin: 0 auto; 
+}
+
+/* ==== OPTION ONE ==== */
+/* Evenly distributed rows of blocks based on the class given to the containing row,
+wrapping onto a new line if there's more*/
+
+$half: 			100%/2;
+$third:			100%/3;
+$quarter:		100%/4;
+$fifth: 		100%/5;
+$sixth: 		100%/6;
+$seventh: 		100%/7;
+$eighth: 		100%/8;
+$ninth: 		100%/9;
+$tenth: 		100%/10;
+$eleventh: 		100%/11;
+$twelfth: 		100%/12;
+// If your $column-count is larger than 12, add more variables here accordingly. You will also need to add more row classes below. 
+
+.row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+.row-of-2 .column { flex-basis: $half; max-width: $half; }
+.row-of-3 .column { flex-basis: $third; max-width: $third; }
+.row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+.row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+.row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+.row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+.row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+.row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+.row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+.row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+.row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }
+
+ @include bp-small {
+	.small-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.small-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.small-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.small-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.small-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.small-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.small-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.small-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.small-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.small-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.small-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.small-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+ @include bp-medium {
+	.medium-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.medium-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.medium-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.medium-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.medium-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.medium-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.medium-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.medium-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.medium-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.medium-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.medium-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.medium-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+ @include bp-tablet {
+	.tablet-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.tablet-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.tablet-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.tablet-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.tablet-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.tablet-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.tablet-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.tablet-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.tablet-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.tablet-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.tablet-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.tablet-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+ @include bp-large {
+	.large-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.large-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.large-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.large-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.large-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.large-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.large-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.large-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.large-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.large-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.large-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.large-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+ @include bp-xlarge {
+	.xlarge-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.xlarge-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.xlarge-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.xlarge-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.xlarge-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.xlarge-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.xlarge-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.xlarge-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.xlarge-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.xlarge-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.xlarge-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.xlarge-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+ @include bp-xxlarge {
+	.xxlarge-row-of-1 .column { flex-basis: 100%; max-width: 100%; }
+	.xxlarge-row-of-2 .column { flex-basis: $half; max-width: $half; }
+	.xxlarge-row-of-3 .column { flex-basis: $third; max-width: $third; }
+	.xxlarge-row-of-4 .column { flex-basis: $quarter; max-width: $quarter; }
+	.xxlarge-row-of-5 .column { flex-basis: $fifth; max-width: $fifth; }
+	.xxlarge-row-of-6 .column { flex-basis: $sixth; max-width: $sixth; }
+	.xxlarge-row-of-7 .column { flex-basis: $seventh; max-width: $seventh; }
+	.xxlarge-row-of-8 .column { flex-basis: $eighth; max-width: $eighth; }
+	.xxlarge-row-of-9 .column { flex-basis: $ninth; max-width: $ninth; }
+	.xxlarge-row-of-10 .column { flex-basis: $tenth; max-width: $tenth; }
+	.xxlarge-row-of-11 .column { flex-basis: $eleventh; max-width: $eleventh; }
+	.xxlarge-row-of-12 .column { flex-basis: $twelfth; max-width: $twelfth; }	
+}
+
+
+/* ==== OPTION TWO ==== */
+/* Variable width blocks based on the class given to the columns */
+
+// Column widths
+$columns-1: (100%/$column-count);
+$columns-2: ($columns-1*2);
+$columns-3: ($columns-1*3);
+$columns-4: ($columns-1*4);
+$columns-5: ($columns-1*5);
+$columns-6: ($columns-1*6);
+$columns-7: ($columns-1*7);
+$columns-8: ($columns-1*8);
+$columns-9: ($columns-1*9);
+$columns-10: ($columns-1*10);
+$columns-11: ($columns-1*11);
+$columns-12: ($columns-1*12);
+// If your $column-count is larger than 12, add more variables here accordingly. You will also need to add more column classes below. 
+
+.row .columns {
+	&.start-1 { flex-basis: $columns-1; max-width: $columns-1; }
+	&.start-2 { flex-basis: $columns-2; max-width: $columns-2; }
+	&.start-3 { flex-basis: $columns-3; max-width: $columns-3; }
+	&.start-4 { flex-basis: $columns-4; max-width: $columns-4; }
+	&.start-5 { flex-basis: $columns-5; max-width: $columns-5; }
+	&.start-6 { flex-basis: $columns-6; max-width: $columns-6; }
+	&.start-7 { flex-basis: $columns-7; max-width: $columns-7; }
+	&.start-8 { flex-basis: $columns-8; max-width: $columns-8; }
+	&.start-9 { flex-basis: $columns-9; max-width: $columns-9; }
+	&.start-10 { flex-basis: $columns-10; max-width: $columns-10; }
+	&.start-11 { flex-basis: $columns-11; max-width: $columns-11; }
+	&.start-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	
+	 @include bp-small {
+		&.small-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.small-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.small-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.small-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.small-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.small-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.small-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.small-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.small-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.small-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.small-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.small-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+	 @include bp-medium {
+		&.medium-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.medium-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.medium-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.medium-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.medium-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.medium-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.medium-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.medium-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.medium-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.medium-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.medium-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.medium-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+	 @include bp-tablet {
+		&.tablet-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.tablet-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.tablet-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.tablet-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.tablet-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.tablet-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.tablet-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.tablet-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.tablet-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.tablet-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.tablet-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.tablet-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+	 @include bp-large {
+		&.large-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.large-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.large-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.large-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.large-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.large-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.large-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.large-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.large-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.large-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.large-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.large-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+	 @include bp-xlarge {
+		&.xlarge-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.xlarge-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.xlarge-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.xlarge-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.xlarge-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.xlarge-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.xlarge-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.xlarge-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.xlarge-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.xlarge-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.xlarge-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.xlarge-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+	 @include bp-xxlarge {
+		&.xxlarge-1 { flex-basis: $columns-1; max-width: $columns-1; }
+		&.xxlarge-2 { flex-basis: $columns-2; max-width: $columns-2; }
+		&.xxlarge-3 { flex-basis: $columns-3; max-width: $columns-3; }
+		&.xxlarge-4 { flex-basis: $columns-4; max-width: $columns-4; }
+		&.xxlarge-5 { flex-basis: $columns-5; max-width: $columns-5; }
+		&.xxlarge-6 { flex-basis: $columns-6; max-width: $columns-6; }
+		&.xxlarge-7 { flex-basis: $columns-7; max-width: $columns-7; }
+		&.xxlarge-8 { flex-basis: $columns-8; max-width: $columns-8; }
+		&.xxlarge-9 { flex-basis: $columns-9; max-width: $columns-9; }
+		&.xxlarge-10 { flex-basis: $columns-10; max-width: $columns-10; }
+		&.xxlarge-11 { flex-basis: $columns-11; max-width: $columns-11; }
+		&.xxlarge-12 { flex-basis: $columns-12; max-width: $columns-12; }
+	}
+	
+}
+
+/* ==== OPTION THREE ==== */
+/* Spread all blocks evenly as long as their content fits, no matter how many there is.
+Can be the messiest depending on how uniform your content is.*/
+.row-fit { 
+	> .column { 
+		flex: auto; 
+	}
+}

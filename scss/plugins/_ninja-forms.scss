@@ -1,0 +1,77 @@
+/*=================================================================================
+	NINJA FORMS
+=================================================================================*/
+.ninja-forms-cont {
+	padding-bottom:$gutter;
+	.ninja-forms-response-msg {
+		margin:0;
+		font-weight:700;
+	}
+	.ninja-forms-response-msg.ninja-forms-error-msg {
+		color:#cc0000;
+		p {
+			display:inline;
+			padding-right:$gutter/6;
+		}
+	}
+	.ninja-forms-response-msg.ninja-forms-success-msg {
+		color:$secondary-color;
+		margin:0 0 em-calc(20);
+	}
+	.ninja-forms-field-error {
+		color:#cc0000;
+		font-size: $font-size-small;
+		p {
+			display:inline;
+		}
+	}
+	.ninja-forms-error {
+		input[type=text], input[type=email], textarea, select {
+			border-color:#cc0000!important;
+		}
+	}
+	.ninja-forms-field-description {
+		font-size: $font-size-small;
+
+		p {
+			margin:0 0 $gutter/6;
+			color:lighten($body-color,20%);
+		}
+	}
+	.ninja-forms-required-items {
+		display:block;
+		margin:0 0 $gutter/6 0;
+		font-size: $font-size-small;
+		color:lighten($body-color,20%);
+		font-style:italic;
+	}
+	.input-group {
+		margin-top:1em;
+	}
+	.field-wrap {
+		margin-bottom:em-calc(8)!important;
+
+		&:last-child {
+			margin-bottom:0!important;
+		}
+	}
+}
+/*=================================================================================
+	DATEPICKER
+=================================================================================*/
+.ui-datepicker-header {
+	background-color:$primary-color;
+	color:#ffffff;
+}
+.ui-datepicker-calendar {
+	border:em-calc(1) solid $primary-color;
+}
+a.ui-state-default {
+	color:$primary-color;
+	display:block;
+	padding:em-calc(2);
+	&:hover, &:focus {
+		background-color:$primary-color;
+		color:#ffffff;
+	}
+}

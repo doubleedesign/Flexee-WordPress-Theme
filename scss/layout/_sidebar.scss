@@ -1,0 +1,43 @@
+#secondary {
+	
+	section {
+		background: rgba($body-color,0.1);
+		padding: map-get($grid-gutter-half,start);
+		margin-bottom: map-get($grid-gutter-half,start);
+		
+		@include bp-small {
+			padding: map-get($grid-gutter-half,small);
+			margin-bottom: map-get($grid-gutter-half,small);
+		}
+
+		@include bp-medium {
+			padding: map-get($grid-gutter-half,medium);
+			margin-bottom: map-get($grid-gutter-half,medium);
+		}
+
+		@include bp-tablet {
+			padding: map-get($grid-gutter-half,tablet);
+			margin-bottom: map-get($grid-gutter-half,tablet);
+		}
+
+		@include bp-large {
+			padding: map-get($grid-gutter-half,large);
+			margin-bottom: map-get($grid-gutter-half,large);
+		}
+
+		@include bp-xlarge {
+			padding: map-get($grid-gutter-half,xlarge);
+			margin-bottom: map-get($grid-gutter-half,xlarge);
+		}
+
+		@include bp-xxlarge {
+			padding: map-get($grid-gutter-half,xxlarge);
+			margin-bottom: map-get($grid-gutter-half,xxlarge);
+		}
+		
+		ul {
+			margin: 0;
+			padding-left: 1.5em;
+		}
+	}
+}

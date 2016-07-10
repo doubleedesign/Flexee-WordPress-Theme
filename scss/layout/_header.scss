@@ -1,0 +1,32 @@
+header {
+	position:relative;
+	margin:0;
+
+	&#masthead {
+		background: $primary-color;	
+		z-index:100;
+		
+		.site-title {
+			@extend h1;
+			color: #FFF;
+			display: block;
+			
+			a {
+				display: block;
+				font-size: 1.5em; //adding a font size here ensures .site-title gets the size of a h1 using @extend h1, but the actual size of the text is 1.5x the size of a h1 when using 1.5em here.
+				margin-top: 1em;
+				color: #FFF;
+				text-decoration: none;
+			}
+		}
+		
+		.site-description {
+			@extend h3;
+			color: rgba(#FFF,0.7);
+			display: block;
+			font-weight: $font-weight-light;
+			margin-bottom: 2em;
+		}
+	}
+	
+}

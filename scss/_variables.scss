@@ -1,0 +1,52 @@
+/*=========================================
+	COLOUR SCHEME
+=========================================*/
+$primary-color:  				#7e3f98;
+$secondary-color:				#222;
+$accent-color:					darken(#F00,10%);
+$body-color:					#555;
+
+$success-color: 				#3adb76;
+$warning-color: 				#ffae00;
+$info-color: 					#bde5f8;
+$error-color: 					#ec5840;
+
+$link-color:					darken($body-color, 10%);
+$link-hover-color:				$primary-color;
+
+/*=========================================
+	TYPOGRAPHY
+=========================================*/
+$heading-font: 					'Roboto Condensed', Arial, sans-serif; 
+$heading-text-transform:		none;
+$subheading-font:				$heading-font;
+$body-font: 					'Roboto Condensed', Arial, sans-serif;
+$font-size-normal:				em-calc(16);
+$font-size-large-screen: 		em-calc(18);
+$font-size-small:				em-calc(14);
+$font-weight-light:				300;
+$font-weight-normal:			400;
+$font-weight-bold:				700;
+$line-height-normal:			1.45;
+$heading-font-weight:			$font-weight-light;
+
+/*=========================================
+	NAVIGATION
+=========================================*/
+$menu-font: 					$heading-font;
+$menu-text-transform: 			none;
+$menu-link-color:				#FFF;
+$menu-hover-color:				$menu-link-color;
+$menu-background:				darken($primary-color,10);
+$menu-hover-background: 		darken($menu-background,5%);
+
+$dropdown-font: 				$menu-font;
+$dropdown-color:				#ffffff;
+$dropdown-hover-color:			$dropdown-color;
+$dropdown-background:			$menu-hover-background;
+$dropdown-hover-background:		darken($dropdown-background,5%);
+
+/*=========================================
+	MISC
+=========================================*/
+$transition:					0.3s ease;

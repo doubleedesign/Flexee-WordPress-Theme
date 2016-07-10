@@ -1,0 +1,59 @@
+/*!
+Theme Name: FlexeeWP
+Theme URI: http://flexee.doublee-dev.com.au
+Author: Leesa Ward
+Author URI: http://www.leesaward.com.au
+Description: FlexeeWP is a WordPress starter theme that uses a simple, flexbox-based, 12-column grid system and plenty of SASS.
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: flexee
+*/
+
+/* Font Awesome */
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css";
+
+/* Functions */
+@import "core/functions";
+
+/* Site variables */
+@import "variables";
+
+/* Core: Things that generally don't change */
+@import "core/grid";
+@import "core/mixins";
+@import "core/normalize"; 
+@import "core/accessibility"; 
+@import "core/utilities"; 
+
+/* Typography */
+@import "typography/typescales";
+@import "typography/typography";
+
+/* Standard components */
+@import "components/asides";
+@import "components/buttons";
+@import "components/comments";
+@import "components/excerpts";
+@import "components/forms";
+@import "components/media";
+@import "components/messages";
+@import "components/pagination";
+@import "components/tables";
+@import "components/widgets";
+
+/* Main layout sections */
+@import "layout/global";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/sidebar";
+@import "layout/footer";
+
+/* Templates */
+@import "templates/single";
+@import "templates/page";
+@import "templates/homepage";
+
+/* Plugins - add/remove as needed */
+@import "plugins/ninja-forms";
+/*@import "plugins/woocommerce"; */

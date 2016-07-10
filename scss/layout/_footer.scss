@@ -1,0 +1,24 @@
+footer#colophon {
+	background-color:$secondary-color;
+	padding: $global-padding/2 0;
+	
+	span {
+		color: rgba(#FFF,0.6);
+		display: block;
+		font-weight: $font-weight-light;
+		
+		@include bp-medium {
+			display: inline-block;
+			padding-right: $global-padding;
+		}
+	}
+	
+	a {
+		color: rgba(#FFF,0.6);
+		
+		&:hover,
+		&:focus {
+			color: #FFF;
+		}
+	}
+}

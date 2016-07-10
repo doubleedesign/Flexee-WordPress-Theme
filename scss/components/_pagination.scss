@@ -1,0 +1,43 @@
+/*=================================================================================
+	PAGINATION
+=================================================================================*/
+.pagination, 
+.woocommerce-pagination {
+	margin-top: $global-margin;
+	margin-bottom: $global-margin;
+	padding:0;
+	display:block;
+	ul {
+		list-style:none;
+		display:block;
+		margin:0;
+		padding: 0;
+		text-align:left;
+		li {
+			display:inline-block;
+			margin-right: 1px;
+			.page-numbers, a {
+				@extend btn-secondary;
+			}
+		}
+	} 
+	/*==================================
+		SINGLE POST PAGINATION
+	==================================*/
+	&.single {
+		ul {
+			li {
+				display:inline-block;
+				width:50%;
+				margin:0;
+				text-align:left;
+				a {
+					display:inline-block;
+				}
+				&.newer {
+					text-align:right;
+				}
+			}
+		}
+	}
+}

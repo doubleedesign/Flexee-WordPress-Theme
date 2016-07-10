@@ -1,0 +1,46 @@
+/*==============================================
+	MESSAGES
+==============================================*/
+.message {
+	padding:$gutter/2;
+	margin:$gutter/2 0;
+	padding-left:$gutter*1.5;
+	position:relative;
+	&:before {
+		font-family:"FontAwesome";
+		position:absolute;
+		left:$gutter/2;
+	}
+	&.success {
+		background:rgba($success-color,0.2);
+		border: 1px solid $success-color;
+		color: $success-color;
+		&:before {
+			content:"\f058";
+		}
+	}
+	&.info {
+		background:rgba($info-color,0.2);
+		border: 1px solid $info-color;
+		color: $info-color;
+		&:before {
+			content:"\f05a";
+		}
+	}
+	&.warning {
+		background:rgba($warning-color,0.2);
+		border: 1px solid $warning-color;
+		color: $warning-color;
+		&:before {
+			content:"\f06a";
+		}
+	}
+	&.error {
+		background:rgba($error-color,0.2);
+		border: 1px solid $error-color;
+		color: $error-color;
+		&:before {
+			content:"\f057";
+		}
+	}
+}

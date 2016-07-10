@@ -1,0 +1,150 @@
+/*==============================================
+TYPE SCALES - www.type-scale.com
+Note: the base font size and line height are set as variables, called in _typography.scss
+Paragraph margins don't change according to type scale used so they are set once in _typography.scss
+The base font size can be changed at different breakpoints and the type will scale accordingly since it's set in ems.
+==============================================*/
+ 
+@mixin typescale-minor-second {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 1.296em;
+	}
+	h2 {font-size: 1.215em;}
+	h3 {font-size: 1.138em;}
+	h4 {font-size: 1.067em;}
+}
+ 
+@mixin typescale-major-second {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 1.602em;
+	}
+	h2 {font-size: 1.424em;}
+	h3 {font-size: 1.266em;}
+	h4 {font-size: 1.125em;}
+}
+ 
+@mixin typescale-minor-third {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 2.074em;
+	}
+	h2 {font-size: 1.728em;}
+	h3 {font-size: 1.44em;}
+	h4 {font-size: 1.2em;}
+}
+ 
+@mixin typescale-major-third {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 2.441em;
+	}
+	h2 {font-size: 1.953em;}
+	h3 {font-size: 1.563em;}
+	h4 {font-size: 1.25em;}
+}
+ 
+@mixin typescale-perfect-fourth {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 3.157em;
+	}
+	h2 {font-size: 2.369em;}
+	h3 {font-size: 1.777em;}
+	h4 {font-size: 1.333em;}
+}
+ 
+@mixin typescale-augmented-fourth {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 3.998em;
+	}
+	h2 {font-size: 2.827em;}
+	h3 {font-size: 1.999em;}
+	h4 {font-size: 1.414em;}
+}
+ 
+@mixin typescale-perfect-fifth {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 5.063em;
+	}
+	h2 {font-size: 3.375em;}
+	h3 {font-size: 2.25em;}
+	h4 {font-size: 1.5em;}
+}
+ 
+@mixin typescale-golden-ratio {
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
+	  &:first-child {
+		  margin-top: 0;
+	  }
+	}
+	h1 {
+	  margin-top: 0;
+	  font-size: 6.854em;
+	}
+	h2 {font-size: 4.236em;}
+	h3 {font-size: 2.618em;}
+	h4 {font-size: 1.618em;}
+}

@@ -1,0 +1,158 @@
+/*=========================================
+	GENERAL
+=========================================*/
+body, html {
+	height: 100%;
+}
+
+body { 
+	font-size: $font-size-normal;
+	line-height: $line-height-normal;
+	
+	@include bp-xlarge {
+		font-size: $font-size-large-screen;
+	}
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $body-color;
+	font-family: $body-font;
+	line-height: $line-height-normal;
+}
+
+hr {
+	background-color: $body-color;
+	border: 0;
+	height: 1px;
+	margin-bottom: $global-margin;
+}
+
+/*=========================================
+	LINKS
+=========================================*/
+a {
+	color: $link-color;
+	transition: all $transition;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $link-hover-color;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/*=========================================
+	HEADINGS
+=========================================*/
+h1, h2, h3, h4, h5, h6 {
+	font-family:$heading-font;
+	font-weight:$heading-font-weight;
+	text-transform:$heading-text-transform;
+	clear: both;
+}
+
+@include typescale-major-second;
+
+@include bp-medium {
+	@include typescale-minor-third;
+}
+
+@include bp-tablet {
+	@include typescale-major-third;
+}
+
+@include bp-xlarge {
+	@include typescale-perfect-fourth;
+}
+
+/*=========================================
+	PARAGRAPHS
+=========================================*/
+p {
+	margin-bottom: 1.3em;
+}
+
+/*=========================================
+	LISTS
+=========================================*/
+ul, ol {
+	margin-left: $global-margin/2;
+	margin-bottom: $global-margin;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: $global-margin;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 $global-margin $global-margin;
+}
+
+/*=========================================
+	OTHER
+=========================================*/
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 $global-margin;
+}
+
+address {
+	margin: 0 0 $global-margin;
+}
+
+pre {
+	margin-bottom: $global-margin;
+	max-width: 100%;
+	overflow: auto;
+	padding: $global-padding;
+}
+
+code, kbd, tt, var {
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted $body-color;
+	cursor: help;
+}
+
+mark, ins {
+	background: rgba($primary-color,0.2);
+	text-decoration: none;
+}
+
+small {
+	font-size: $font-size-small;
+}
+
+big {
+	font-size: 125%;
+}
