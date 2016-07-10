@@ -1,0 +1,29 @@
+/*
+Sass::SyntaxError: ".pagination ul li .page-numbers" failed to @extend "btn-secondary".
+The selector "btn-secondary" was not found.
+Use "@extend btn-secondary !optional" if the extend should be able to fail.
+
+
+Backtrace:
+/Applications/MAMP/htdocs/flexee/scss/components/_pagination.scss:20
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/tree/visitors/extend.rb:61:in `block in check_extends_fired!'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/util/subset_map.rb:105:in `block in each_value'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/util/subset_map.rb:105:in `each'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/util/subset_map.rb:105:in `each_value'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/tree/visitors/extend.rb:50:in `check_extends_fired!'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/tree/visitors/extend.rb:16:in `visit'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/tree/root_node.rb:39:in `css_tree'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:420:in `run'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/exec/base.rb:52:in `parse'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/rubygems/gems/sass-3.4.19/bin/sass:13:in `<top (required)>'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/bin/sass:30:in `load'
+/Applications/Adobe Dreamweaver CC (2017 Beta)/Dreamweaver Beta.app/Contents/Resources/gems/bin/sass:30:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: \".pagination ul li .page-numbers\" failed to @extend \"btn-secondary\".\A The selector \"btn-secondary\" was not found.\A Use \"@extend btn-secondary !optional\" if the extend should be able to fail.\A "; }
