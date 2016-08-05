@@ -13,6 +13,11 @@
 	transition:$transition;
 	-webkit-appearance: none; /*Stops iOS from taking over how buttons look*/
 	padding: map-get($grid-gutter,start) map-get($grid-gutter-double,start);
+	
+	&:hover,
+	&:focus {
+		color: #FFF;
+	}
 }
 
 .btn-primary {

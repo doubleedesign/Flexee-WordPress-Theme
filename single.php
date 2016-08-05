@@ -9,29 +9,33 @@
 
 get_header(); ?>
 
-<div class="row">
+<section id="primary">
 
-	<article id="primary" class="content-area start-12 tablet-8 columns" role="main">
+	<div class="row">
 
-	<?php
-	while ( have_posts() ) : the_post();
+		<article id="post-<?php the_ID(); ?>" class="content-area start-12 tablet-8 columns" role="main">
 
-		get_template_part( 'template-parts/content', get_post_format() );
+		<?php
+		while ( have_posts() ) : the_post();
 
-		the_post_navigation();
+			get_template_part( 'template-parts/content', get_post_format() );
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
+			the_post_navigation();
 
-	endwhile; // End of the loop.
-	?>
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
-	</article>
-	
-	<?php get_sidebar(); ?>
+		endwhile; // End of the loop.
+		?>
 
-</div>
+		</article>
+
+		<?php get_sidebar(); ?>
+
+	</div>
+
+</section>
 
 <?php get_footer(); ?>

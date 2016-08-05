@@ -1796,6 +1796,10 @@ big {
   padding: 0.66667em 1.33333em;
 }
 
+.btn:hover, .btn-primary:hover, input[type=submit]:hover, button:hover, .btn-secondary:hover, .btn-accent:hover, .main-navigation ul li a:hover, .btn:focus, .btn-primary:focus, input[type=submit]:focus, button:focus, .btn-secondary:focus, .btn-accent:focus, .main-navigation ul li a:focus {
+  color: #FFF;
+}
+
 .btn-primary, input[type=submit], button {
   background: #7e3f98;
 }
@@ -1840,6 +1844,87 @@ big {
 /*=========================================
 	EXCERPTS
 =========================================*/
+.excerpt.type-page,
+.excerpt.type-post {
+  margin: 0;
+  border-top: 1px solid rgba(85, 85, 85, 0.3);
+  padding-top: 0.66667em;
+  padding-bottom: 0.66667em;
+}
+
+@media only screen and (min-width: 37.5em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 0.66667em;
+    padding-bottom: 0.66667em;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+}
+
+@media only screen and (min-width: 100em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+}
+
+@media only screen and (min-width: 120em) {
+  .excerpt.type-page,
+  .excerpt.type-post {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+}
+
+.excerpt.type-page:first-of-type,
+.excerpt.type-post:first-of-type {
+  padding-top: 0;
+  border: 0;
+}
+
+.excerpt.type-page .entry-content,
+.excerpt.type-post .entry-content {
+  margin: 0;
+}
+
+.excerpt.type-page h3, .excerpt.type-page header#masthead .site-description, header#masthead .excerpt.type-page .site-description,
+.excerpt.type-post h3,
+.excerpt.type-post header#masthead .site-description, header#masthead
+.excerpt.type-post .site-description {
+  margin-top: 0;
+}
+
+.excerpt.type-page h3 a, .excerpt.type-page header#masthead .site-description a, header#masthead .excerpt.type-page .site-description a,
+.excerpt.type-post h3 a,
+.excerpt.type-post header#masthead .site-description a, header#masthead
+.excerpt.type-post .site-description a {
+  text-decoration: none;
+}
+
 form li {
   list-style: none;
 }
