@@ -1773,17 +1773,14 @@ big {
 }
 
 /* Standard components */
-/*=========================================
-	ASIDES
-=========================================*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
   display: none;
 }
 
-/*=========================================
+/*=================================================================================
 	BUTTONS
-=========================================*/
+=================================================================================*/
 .btn, .btn-primary, input[type=submit], button, .btn-secondary, .btn-accent, .main-navigation ul li a {
   color: #FFF;
   font-weight: 300;
@@ -1836,9 +1833,6 @@ big {
   font-size: 0.8em;
 }
 
-/*=========================================
-	COMMENTS
-=========================================*/
 .comment-content a {
   word-wrap: break-word;
 }
@@ -1931,9 +1925,6 @@ big {
   text-decoration: none;
 }
 
-/*=========================================
-	FORMS
-=========================================*/
 form li {
   list-style: none;
 }
@@ -2164,9 +2155,6 @@ table {
   width: 100%;
 }
 
-/*=========================================
-	WIDGETS
-=========================================*/
 /* Main layout sections */
 section#content {
   padding-top: 0.66667em;
