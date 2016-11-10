@@ -90,7 +90,7 @@
 		margin-bottom: $gutter*2;
 		
 		input[type=submit] {
-			@extend btn-accent;
+			@extend .btn-accent;
 		}
 		
 		&.login {
@@ -789,8 +789,7 @@
 					height: auto;
 				}
 				button {
-					@extend btn-secondary;
-					@extend btn-small;
+					@extend .btn-secondary, .btn-small;
 					margin: 0;
 				}
 			}
@@ -929,7 +928,7 @@
 			}
 		}
 		input[type=submit] {
-			@extend btn-primary;
+			@extend .btn-primary;
 			margin: 0 !important;
 		}
 	}

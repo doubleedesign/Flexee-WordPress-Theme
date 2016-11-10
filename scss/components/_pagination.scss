@@ -17,7 +17,7 @@
 			display:inline-block;
 			margin-right: 1px;
 			.page-numbers, a {
-				@extend btn-secondary;
+				@extend .btn-secondary;
 			}
 		}
 	} 
