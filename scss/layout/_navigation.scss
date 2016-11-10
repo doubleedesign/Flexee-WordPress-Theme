@@ -29,8 +29,8 @@
 				@extend .btn;
 				display: block;
 				background: $menu-background;
-				padding-top: map-get($grid-gutter-double,start);
-				padding-bottom: map-get($grid-gutter-double,start);
+				padding-top: $global-padding/2;
+				padding-bottom: $global-padding/2;
 
 				&:hover, &:focus {
 					background: $menu-hover-background;
@@ -67,8 +67,8 @@
 					
 					a {
 						background: $dropdown-background;
-						padding-top: map-get($grid-gutter,start);
-						padding-bottom: map-get($grid-gutter,start);
+						padding-top: $global-padding/2;
+						padding-bottom: $global-padding/2;
 						
 						&:hover,
 						&:focus {

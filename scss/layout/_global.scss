@@ -1,36 +1,6 @@
 section#content {
-	padding-top: map-get($grid-gutter,start);
-	padding-bottom: map-get($grid-gutter,start);
-  
-   @include bp-small {
-	   padding-top: map-get($grid-gutter,small);
-  	   padding-bottom: map-get($grid-gutter,small);
-   }
-   
-   @include bp-medium {
-	   padding-top: map-get($grid-gutter,medium);
-  	   padding-bottom: map-get($grid-gutter,medium);
-   }
-   
-   @include bp-tablet {
-	   padding-top: map-get($grid-gutter,tablet);
-  	   padding-bottom: map-get($grid-gutter,tablet);
-   }
-   
-   @include bp-large {
-	   padding-top: map-get($grid-gutter,large);
-  	   padding-bottom: map-get($grid-gutter,large);
-   }
-   
-   @include bp-xlarge {
-	   padding-top: map-get($grid-gutter,xlarge);
-  	   padding-bottom: map-get($grid-gutter,xlarge);
-   }
-   
-   @include bp-xxlarge {
-	   padding-top: map-get($grid-gutter,xxlarge);
-  	   padding-bottom: map-get($grid-gutter,xxlarge);
-   }
+	padding-top: $global-padding;
+	padding-bottom: $global-padding; 
 }
 
 article, main {

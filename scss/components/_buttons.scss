@@ -12,7 +12,7 @@
 	display:inline-block;
 	transition:$transition;
 	-webkit-appearance: none; /*Stops iOS from taking over how buttons look*/
-	padding: map-get($grid-gutter,start) map-get($grid-gutter-double,start);
+	padding: $global-padding/2 $global-padding;
 	
 	&:hover,
 	&:focus {

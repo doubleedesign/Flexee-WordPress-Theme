@@ -81,19 +81,11 @@ body {
   -webkit-flex: 0 auto;
       -ms-flex: 0 auto;
           flex: 0 auto;
-  padding-left: 0.66667em;
-  padding-right: 0.66667em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
-@media only screen and (min-width: 37.5em) {
-  .column,
-  .columns {
-    padding-left: 0.66667em;
-    padding-right: 0.66667em;
-  }
-}
-
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 60em) {
   .column,
   .columns {
     padding-left: 1em;
@@ -101,35 +93,11 @@ body {
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 100em) {
   .column,
   .columns {
     padding-left: 2em;
     padding-right: 2em;
-  }
-}
-
-@media only screen and (min-width: 80em) {
-  .column,
-  .columns {
-    padding-left: 3em;
-    padding-right: 3em;
-  }
-}
-
-@media only screen and (min-width: 100em) {
-  .column,
-  .columns {
-    padding-left: 4em;
-    padding-right: 4em;
-  }
-}
-
-@media only screen and (min-width: 120em) {
-  .column,
-  .columns {
-    padding-left: 5em;
-    padding-right: 5em;
   }
 }
 
@@ -1229,6 +1197,9 @@ Can be the messiest depending on how uniform your content is.*/
           flex: auto;
 }
 
+/*=========================================
+	GRID MIXINS
+=========================================*/
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1781,7 +1752,9 @@ big {
 /*=================================================================================
 	BUTTONS
 =================================================================================*/
-.btn, .btn-primary, input[type=submit], button, .btn-secondary, .btn-accent, .main-navigation ul li a {
+.btn, .btn-primary, input[type=submit], button, .btn-secondary, .pagination ul li .page-numbers, .pagination ul li a,
+.woocommerce-pagination ul li .page-numbers,
+.woocommerce-pagination ul li a, .btn-accent, .main-navigation ul li a {
   color: #FFF;
   font-weight: 300;
   line-height: 1.0;
@@ -1793,10 +1766,14 @@ big {
   transition: 0.3s ease;
   -webkit-appearance: none;
   /*Stops iOS from taking over how buttons look*/
-  padding: 0.66667em 1.33333em;
+  padding: 1em 2em;
 }
 
-.btn:hover, .btn-primary:hover, input[type=submit]:hover, button:hover, .btn-secondary:hover, .btn-accent:hover, .main-navigation ul li a:hover, .btn:focus, .btn-primary:focus, input[type=submit]:focus, button:focus, .btn-secondary:focus, .btn-accent:focus, .main-navigation ul li a:focus {
+.btn:hover, .btn-primary:hover, input[type=submit]:hover, button:hover, .btn-secondary:hover, .pagination ul li .page-numbers:hover, .pagination ul li a:hover,
+.woocommerce-pagination ul li .page-numbers:hover,
+.woocommerce-pagination ul li a:hover, .btn-accent:hover, .main-navigation ul li a:hover, .btn:focus, .btn-primary:focus, input[type=submit]:focus, button:focus, .btn-secondary:focus, .pagination ul li .page-numbers:focus, .pagination ul li a:focus,
+.woocommerce-pagination ul li .page-numbers:focus,
+.woocommerce-pagination ul li a:focus, .btn-accent:focus, .main-navigation ul li a:focus {
   color: #FFF;
 }
 
@@ -1808,11 +1785,17 @@ big {
   background: #603074;
 }
 
-.btn-secondary {
+.btn-secondary, .pagination ul li .page-numbers, .pagination ul li a,
+.woocommerce-pagination ul li .page-numbers,
+.woocommerce-pagination ul li a {
   background: #222;
 }
 
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover, .pagination ul li .page-numbers:hover, .pagination ul li a:hover,
+.woocommerce-pagination ul li .page-numbers:hover,
+.woocommerce-pagination ul li a:hover, .btn-secondary:focus, .pagination ul li .page-numbers:focus, .pagination ul li a:focus,
+.woocommerce-pagination ul li .page-numbers:focus,
+.woocommerce-pagination ul li a:focus {
   background: #090909;
 }
 
@@ -1848,56 +1831,8 @@ big {
 .excerpt.type-post {
   margin: 0;
   border-top: 1px solid rgba(85, 85, 85, 0.3);
-  padding-top: 0.66667em;
-  padding-bottom: 0.66667em;
-}
-
-@media only screen and (min-width: 37.5em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 0.66667em;
-    padding-bottom: 0.66667em;
-  }
-}
-
-@media only screen and (min-width: 48em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-}
-
-@media only screen and (min-width: 60em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 2em;
-    padding-bottom: 2em;
-  }
-}
-
-@media only screen and (min-width: 80em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 3em;
-    padding-bottom: 3em;
-  }
-}
-
-@media only screen and (min-width: 100em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 4em;
-    padding-bottom: 4em;
-  }
-}
-
-@media only screen and (min-width: 120em) {
-  .excerpt.type-page,
-  .excerpt.type-post {
-    padding-top: 5em;
-    padding-bottom: 5em;
-  }
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .excerpt.type-page:first-of-type,
@@ -2001,50 +1936,115 @@ object {
 	GALLERIES
 =========================================*/
 .gallery {
-  margin-bottom: 2em;
+  line-height: 0;
 }
 
-.gallery-item {
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
+.gallery a, .gallery a:hover, .gallery a:focus {
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+.gallery .gallery-item {
+  padding: 0;
+  float: none !important;
+  display: inline-block !important;
+  position: relative !important;
+}
+
+.gallery .gallery-item img {
+  display: block;
+  border: none !important;
   width: 100%;
+  height: auto;
 }
 
-.gallery-columns-2 .gallery-item {
+.gallery .gallery-item .gallery-caption {
+  position: absolute !important;
+  bottom: 0;
+  text-align: center;
+  line-height: 1.45;
+  background: rgba(0, 0, 0, 0.5);
+  padding: rem-calc(5);
+  font-size: rem-calc(10);
+  color: #ffffff;
+  width: 100%;
+  font-style: normal;
+  opacity: 0;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery .gallery-item:hover .gallery-caption {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.gallery br {
+  display: none !important;
+}
+
+.gallery.gallery-columns-1 .gallery-item {
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+  max-width: 100%;
+}
+
+.gallery.gallery-columns-2 .gallery-item {
+  -webkit-flex-basis: 50%;
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
   max-width: 50%;
 }
 
-.gallery-columns-3 .gallery-item {
-  max-width: 33.33%;
+.gallery.gallery-columns-3 .gallery-item {
+  -webkit-flex-basis: 33.33333%;
+      -ms-flex-preferred-size: 33.33333%;
+          flex-basis: 33.33333%;
+  max-width: 33.33333%;
 }
 
-.gallery-columns-4 .gallery-item {
+.gallery.gallery-columns-4 .gallery-item {
+  -webkit-flex-basis: 25%;
+      -ms-flex-preferred-size: 25%;
+          flex-basis: 25%;
   max-width: 25%;
 }
 
-.gallery-columns-5 .gallery-item {
-  max-width: 20%;
+.gallery.gallery-columns-5 .gallery-item {
+  width: 20%;
+  -webkit-flex-basis: 20%;
+      -ms-flex-preferred-size: 20%;
+          flex-basis: 20%;
 }
 
-.gallery-columns-6 .gallery-item {
-  max-width: 16.66%;
+.gallery.gallery-columns-6 .gallery-item {
+  width: 16.66%;
+  -webkit-flex-basis: 16.66%;
+      -ms-flex-preferred-size: 16.66%;
+          flex-basis: 16.66%;
 }
 
-.gallery-columns-7 .gallery-item {
-  max-width: 14.28%;
+.gallery.gallery-columns-7 .gallery-item {
+  width: 14.28%;
+  -webkit-flex-basis: 14.28;
+      -ms-flex-preferred-size: 14.28;
+          flex-basis: 14.28;
 }
 
-.gallery-columns-8 .gallery-item {
-  max-width: 12.5%;
+.gallery.gallery-columns-8 .gallery-item {
+  width: 12.5%;
+  -webkit-flex-basis: 12.5%;
+      -ms-flex-preferred-size: 12.5%;
+          flex-basis: 12.5%;
 }
 
-.gallery-columns-9 .gallery-item {
-  max-width: 11.11%;
-}
-
-.gallery-caption {
-  display: block;
+.gallery.gallery-columns-9 .gallery-item {
+  width: 11.11%;
+  -webkit-flex-basis: 11.11%;
+      -ms-flex-preferred-size: 11.11%;
+          flex-basis: 11.11%;
 }
 
 /*==============================================
@@ -2157,50 +2157,8 @@ table {
 
 /* Main layout sections */
 section#content {
-  padding-top: 0.66667em;
-  padding-bottom: 0.66667em;
-}
-
-@media only screen and (min-width: 37.5em) {
-  section#content {
-    padding-top: 0.66667em;
-    padding-bottom: 0.66667em;
-  }
-}
-
-@media only screen and (min-width: 48em) {
-  section#content {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-}
-
-@media only screen and (min-width: 60em) {
-  section#content {
-    padding-top: 2em;
-    padding-bottom: 2em;
-  }
-}
-
-@media only screen and (min-width: 80em) {
-  section#content {
-    padding-top: 3em;
-    padding-bottom: 3em;
-  }
-}
-
-@media only screen and (min-width: 100em) {
-  section#content {
-    padding-top: 4em;
-    padding-bottom: 4em;
-  }
-}
-
-@media only screen and (min-width: 120em) {
-  section#content {
-    padding-top: 5em;
-    padding-bottom: 5em;
-  }
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 article, main {
@@ -2296,8 +2254,8 @@ header#masthead .site-description {
 .main-navigation ul li a {
   display: block;
   background: #603074;
-  padding-top: 1.33333em;
-  padding-bottom: 1.33333em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .main-navigation ul li a:hover, .main-navigation ul li a:focus {
@@ -2336,8 +2294,8 @@ header#masthead .site-description {
 
 .main-navigation ul li ul li a {
   background: #512962;
-  padding-top: 0.66667em;
-  padding-bottom: 0.66667em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .main-navigation ul li ul li a:hover, .main-navigation ul li ul li a:focus {
@@ -2392,50 +2350,8 @@ header#masthead .site-description {
 
 #secondary section {
   background: rgba(85, 85, 85, 0.1);
-  padding: 0.66667em;
-  margin-bottom: 0.66667em;
-}
-
-@media only screen and (min-width: 37.5em) {
-  #secondary section {
-    padding: 0.66667em;
-    margin-bottom: 0.66667em;
-  }
-}
-
-@media only screen and (min-width: 48em) {
-  #secondary section {
-    padding: 1em;
-    margin-bottom: 1em;
-  }
-}
-
-@media only screen and (min-width: 60em) {
-  #secondary section {
-    padding: 1em;
-    margin-bottom: 1em;
-  }
-}
-
-@media only screen and (min-width: 80em) {
-  #secondary section {
-    padding: 1.5em;
-    margin-bottom: 1.5em;
-  }
-}
-
-@media only screen and (min-width: 100em) {
-  #secondary section {
-    padding: 2em;
-    margin-bottom: 2em;
-  }
-}
-
-@media only screen and (min-width: 120em) {
-  #secondary section {
-    padding: 2.5em;
-    margin-bottom: 2.5em;
-  }
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 #secondary section ul {
