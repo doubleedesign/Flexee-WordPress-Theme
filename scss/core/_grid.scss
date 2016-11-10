@@ -30,37 +30,7 @@ $large:        		em-calc(1280);
 $xlarge: 			em-calc(1600);
 $xxlarge: 			em-calc(1920);
 
-// Spacing
-$grid-gutter: (
-	'start' 	: $gutter/3,
-	'small'  	: $gutter/3,
-	'medium' 	: $gutter/2,
-	'tablet' 	: $gutter,
-	'large'  	: $gutter*1.5,
-	'xlarge' 	: $gutter*2,
-	'xxlarge' 	: $gutter*2.5,
-);
-
-$grid-gutter-half: ( //half the above sizes on tablet and larger, same on smaller
-	'start' 	: $gutter/3,
-	'small'  	: $gutter/3,
-	'medium' 	: $gutter/2,
-	'tablet' 	: $gutter/2,
-	'large'  	: $gutter*0.75,
-	'xlarge' 	: $gutter,
-	'xxlarge' 	: $gutter*1.25,
-);
-
-$grid-gutter-double: (
-	'start' 	: $gutter/1.5,
-	'small'  	: $gutter/1.5,
-	'medium' 	: $gutter,
-	'tablet' 	: $gutter*2,
-	'large'  	: $gutter*3,
-	'xlarge' 	: $gutter*4,
-	'xxlarge' 	: $gutter*5,
-);
-
+//Spacing
 $global-padding: $gutter;
 $global-margin: $gutter;
 
@@ -128,37 +98,17 @@ body {
 .columns {
   box-sizing: border-box;
   flex: 0 auto;
-  padding-left: map-get($grid-gutter,start);
-  padding-right: map-get($grid-gutter,start);
-  
-   @include bp-small {
-	   padding-left: map-get($grid-gutter,small);
-  	   padding-right: map-get($grid-gutter,small);
-   }
-   
-   @include bp-medium {
-	   padding-left: map-get($grid-gutter,medium);
-  	   padding-right: map-get($grid-gutter,medium);
-   }
+  padding-left: $gutter/4;
+  padding-right: $gutter/4;
    
    @include bp-tablet {
-	   padding-left: map-get($grid-gutter,tablet);
-  	   padding-right: map-get($grid-gutter,tablet);
-   }
-   
-   @include bp-large {
-	   padding-left: map-get($grid-gutter,large);
-  	   padding-right: map-get($grid-gutter,large);
+	   padding-left: $gutter/2;
+  	   padding-right: $gutter/2;
    }
    
    @include bp-xlarge {
-	   padding-left: map-get($grid-gutter,xlarge);
-  	   padding-right: map-get($grid-gutter,xlarge);
-   }
-   
-   @include bp-xxlarge {
-	   padding-left: map-get($grid-gutter,xxlarge);
-  	   padding-right: map-get($grid-gutter,xxlarge);
+	   padding-left: $gutter;
+  	   padding-right: $gutter;
    }
 }
 
@@ -196,7 +146,8 @@ $ninth: 		100%/9;
 $tenth: 		100%/10;
 $eleventh: 		100%/11;
 $twelfth: 		100%/12;
-// If your $column-count is larger than 12, add more variables here accordingly. You will also need to add more row classes below. 
+// If your $column-count is larger than 12, add more variables here accordingly. 
+// You will also need to add more row classes below. 
 
 .row-of-1 .column { flex-basis: 100%; max-width: 100%; }
 .row-of-2 .column { flex-basis: $half; max-width: $half; }
@@ -434,3 +385,20 @@ Can be the messiest depending on how uniform your content is.*/
 		flex: auto; 
 	}
 }
+
+/*=========================================
+	GRID MIXINS
+=========================================*/
+
+@mixin one-column 		{ flex-basis: $columns-1; max-width: $columns-1; }
+@mixin two-columns 		{ flex-basis: $columns-2; max-width: $columns-2; }
+@mixin three-columns 	{ flex-basis: $columns-3; max-width: $columns-3; }
+@mixin four-columns 	{ flex-basis: $columns-4; max-width: $columns-4; }
+@mixin fifth-columns 	{ flex-basis: $columns-5; max-width: $columns-5; }
+@mixin six-columns 		{ flex-basis: $columns-6; max-width: $columns-6; }
+@mixin seven-columns  	{ flex-basis: $columns-7; max-width: $columns-7; }
+@mixin eight-columns  	{ flex-basis: $columns-8; max-width: $columns-8; }
+@mixin nine-columns  	{ flex-basis: $columns-9; max-width: $columns-9; }
+@mixin ten-columns  	{ flex-basis: $columns-10; max-width: $columns-10; }
+@mixin eleven-columns  	{ flex-basis: $columns-11; max-width: $columns-11; }
+@mixin twelve-columns  	{ flex-basis: $columns-12; max-width: $columns-12; }
