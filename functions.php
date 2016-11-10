@@ -10,37 +10,53 @@
 /**
  * General theme support declarations
  */
-require get_template_directory() . '/functions/theme-support.php'; 
+require_once get_template_directory() . '/functions/theme-support.php'; 
 
 /**
  * Scripts and stylesheets
  */
-require get_template_directory() . '/functions/scripts.php'; 
+require_once get_template_directory() . '/functions/scripts.php'; 
 
 /**
  * Menus
  */
-require get_template_directory() . '/functions/menus.php'; 
+require_once get_template_directory() . '/functions/menus.php'; 
 
 /**
  * Functions related to media, including images and galleries
  */
-require get_template_directory() . '/functions/media.php'; 
+require_once get_template_directory() . '/functions/media.php'; 
 
 /**
  * Widget areas
  */
-require get_template_directory() . '/functions/widgets.php'; 
+require_once get_template_directory() . '/functions/widgets.php'; 
+
+/**
+ * Blog-related functions
+ */
+require_once get_template_directory() . '/functions/blog.php'; 
+
+/**
+ * Search-related functions
+ */
+require_once get_template_directory() . '/functions/search.php'; 
 
 /**
  * Useful functions for developers to call in templates as needed
  */
-require get_template_directory() . '/functions/developer.php'; 
+require_once get_template_directory() . '/functions/developer.php'; 
+
+/**
+ * WooCommerce functions
+ */
+require_once get_template_directory() . '/functions/woocommerce.php';
+//require_once get_template_directory() . '/functions/woocommerce-catalogue.php';
 
 /**
  * Custom template tags for this theme
  */
-require get_template_directory() . '/inc/template-tags.php';
+require_once get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Customizer additions
